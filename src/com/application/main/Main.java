@@ -1,6 +1,7 @@
 package com.application.main;
 
 
+import com.application.model.Address;
 import com.application.model.UserDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +12,14 @@ public class Main {
         UserDetails userDetails = new UserDetails();
         userDetails.setUsername("aayush");
 
+
+        Address address = new Address();
+        address.setCity("ktm");
+        address.setPincode("3212");
+        address.setState("state");
+        address.setStreet("battishputali");
+
+        userDetails.setAddress(address);
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();

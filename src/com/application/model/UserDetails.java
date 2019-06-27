@@ -1,17 +1,25 @@
 package com.application.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "userDetails")
 public class UserDetails {
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private int id;
     @Column(name = "username")
     private String username;
+    @Embedded
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public int getId() {
         return id;
